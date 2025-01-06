@@ -13,6 +13,7 @@ public class Main {
 		int b1 = b/100;
 		int b2 = b%100/10;
 		int b3 = b%10;
+		
 		int result1 = a*b3;
 		int result2 = a*b2;
 		int result3 = a*b1;
