@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Queue<Integer> sm = new LinkedList<Integer>();
+		Queue<Integer> queue = new LinkedList<Integer>();
 
 		int cmdNum = sc.nextInt();
 		int last = 0;
@@ -18,34 +18,34 @@ public class Main {
 			switch (cmd) {
 			case "push":
 				int num = sc.nextInt();
-				sm.add(num);
+				queue.add(num);
 				last = num;
 				break;
 			case "pop":
-				if (!sm.isEmpty())
-					System.out.println(sm.remove());
+				if (!queue.isEmpty())
+					System.out.println(queue.remove());
 				else
 					System.out.println(-1);
 				break;
 			case "size":
-				System.out.println(sm.size());
+				System.out.println(queue.size());
 				break;
 			case "empty":
-				if (sm.isEmpty()) {
+				if (queue.isEmpty()) {
 					System.out.println(1);
 				} else {
 					System.out.println(0);
 				}
 				break;
 			case "front":
-				if (sm.isEmpty()) {
+				if (queue.isEmpty()) {
 					System.out.println(-1);
 				} else {
-					System.out.println(sm.peek());
+					System.out.println(queue.peek());
 				}
 				break;
 			case "back":
-				if (sm.isEmpty()) {
+				if (queue.isEmpty()) {
 					System.out.println(-1);
 				} else {
 					System.out.println(last);
