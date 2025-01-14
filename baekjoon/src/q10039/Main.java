@@ -12,7 +12,7 @@ public class Main {
 			if (score[i] < 40) {
 				score[i] = 40;
 			}
-			avg += score[i]/score.length;
+			avg += score[i] / score.length;
 		}
 		sc.close();
 		System.out.println(avg);
