@@ -17,7 +17,6 @@ public class Main {
 			int score = 0;
 			int sum = 0;
 			for (int j = 0; j < str[i].length(); j++) {
-
 				if (str[i].charAt(j) == 'O') {
 					sum += ++score;
 				} else {
