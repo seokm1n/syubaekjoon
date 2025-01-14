@@ -12,6 +12,7 @@ public class Main {
 			str[i] = sc.next();
 		}
 		sc.close();
+		
 		for (int i = 0; i < N; i++) {
 			int score = 0;
 			int sum = 0;
