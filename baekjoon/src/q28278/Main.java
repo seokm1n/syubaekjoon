@@ -1,86 +1,56 @@
 package q28278;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		SStack stk = new SStack();
-		String s = br.readLine();
-		int N = Integer.parseInt(s);
-		for (int i = 0; i < N; i++) {
-			String s2 = br.readLine();
-			StringTokenizer st = new StringTokenizer(s2);
+   public static void main(String[]args) throws IOException {
+      // 입력용 BufferedReader, 출력용 BufferedWriter 초기화
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-			int cmd = 0;
-			int param = 0;
-			cmd = Integer.parseInt(st.nextToken());
-			if (st.countTokens() == 2) {
-				param = Integer.parseInt(st.nextToken());
-			}
+      int sizeArray =  Integer.parseInt(bf.readLine()); 
+      List<Integer> stack = new ArrayList<>();
+      StringTokenizer st;
+      for(int i=0;i<sizeArray;i++) {
+          st=new StringTokenizer(bf.readLine());
+          int command=Integer.parseInt(st.nextToken());
+          if(command==1) {
+             stack.add(Integer.parseInt(st.nextToken()));
+          }else if(command==2) {
+             if(stack.isEmpty()) {
+                bw.write("-1\n");;
+             }else {
+                bw.write(stack.get(stack.size()-1)+"\n");
+                stack.remove(stack.size()-1);
+             }
+          }else if(command==3) {
+             bw.write(stack.size()+"\n");
+          }else if(command==4) {
+             if(stack.isEmpty()) {
+                bw.write("1\n");
+             }else {
+                bw.write("0\n");
+             }
+          }else if(command==5) {
+             if(stack.isEmpty()) {
+                bw.write("-1\n");
+             }else {
+                bw.write(stack.get(stack.size()-1)+"\n");
+             }
+          }
+      }
+       // 자원 정리 및 출력
+        bw.flush();
+        bw.close();
+        bf.close();
+      
+   }
 
-			switch (cmd) {
-			case 1:
-				stk.push(param);
-				break;
-			case 2:
-				if (stk.isEmpty() != 1) {
-					System.out.println(stk.pop());
-				} else {
-					System.out.println(-1);
-				}
-				break;
-			case 3:
-				System.out.println(stk.getTop() + 1);
-				break;
-			case 4:
-				System.out.println(stk.isEmpty());
-				break;
-			case 5:
-				if (stk.isEmpty() != 1) {
-					System.out.println(stk.getTopValue());
-				} else {
-					System.out.println(-1);
-				}
-				break;
-			}
-		}
-	}
-}
-
-class SStack {
-	private int[] ar;
-	private int top;
-
-	public SStack() {
-		ar = new int[1000001];
-		top = -1;
-	}
-
-	public void push(int v) {
-		ar[++top] = v;
-	}
-
-	public int pop() {
-		return ar[top--];
-	}
-
-	public int isEmpty() {
-		if (top == -1) {
-			return 1;
-		} else {
-			return 0;
-		}
-	}
-
-	public int getTop() {
-		return top;
-	}
-
-	public int getTopValue() {
-		return ar[top];
-	}
 }
