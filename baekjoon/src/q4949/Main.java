@@ -7,17 +7,17 @@ import java.util.Stack;
 public class Main {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ArrayList<String> strList = new ArrayList<>();
+		ArrayList<String> arr = new ArrayList<>();
 
 		while (true) {
 			String str = sc.nextLine();
 			if (str.equals(".")) {
 				break;
 			}
-			strList.add(str);
+			arr.add(str);
 		}
-		for (int i = 0; i < strList.size(); i++) {
-			if (check(strList.get(i))) {
+		for (int i = 0; i < arr.size(); i++) {
+			if (check(arr.get(i))) {
 				System.out.println("yes");
 			} else {
 				System.out.println("no");
